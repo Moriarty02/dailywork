@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        height: 0;
+    }
+    
+    .box {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: -webkit-gradient(linear, left top, right top, from(#ace), color-stop(0.05, #f96), color-stop(0.5, #ace), color-stop(0.95, #f96), to(#ace));
+        position: absolute;
+        left: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script type="text/javascript">
+    //动画测试
+    //一个div中left：100 2s缓慢变成left:200
+    // 最开始的想法，这样做的确做出效果，但是存在很严重的问题
+    // setInterval() 触发会被其他事件阻塞，
+    // 可能会出现元素没有动，隔了大约2s后瞬间到了指定位置
+    // 而且setInterval计时不准
+    var box = document.querySelector(".box");
+
+    function move(dom, width) {
+        var linears = 0;
+        var onestep = width / 100;
+        var timer = setInterval(function() {
+            dom.style.left = linears + "px";
+            linears += onestep;
+            if (linears >= width) {
+                clearInterval(timer);
+
+            }
+
+        }, 16.7);
+
+    }
+    move(box,100);
+    </script>
+</body>
+
+</html>
