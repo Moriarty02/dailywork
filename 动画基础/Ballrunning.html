@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>球球滚起来</title>
+    <style type="text/css">
+    @-webkit-keyframes move {
+        from {
+            left: 100%;
+            -webkit-transform: rotateZ(0deg);
+            -ms-transform: rotateZ(0deg);
+            -o-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+        }
+        to {
+            left: 0%;
+            -webkit-transform: rotateZ(-720deg);
+            -ms-transform: rotateZ(-720deg);
+            -o-transform: rotateZ(-720deg);
+            transform: rotateZ(-720deg);
+        }
+    }
+    
+    .ball {
+        /*普通样式*/
+        
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: -webkit-gradient(linear, left top, right bottom, from(#0DF5F3), to(#E4FA0C));
+        text-align: center;
+        line-height: 100px;
+        font-family: '微软雅黑';
+        font-size: 4em;
+        color: green;
+        position: absolute;
+        /*动画设计*/
+        
+        -webkit-animation-name: move;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-timing-function: linear;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="ball">A</div>
+</body>
+<script type="text/javascript">
+	//这个例子主要是测试css3的动画animation和css的旋转，顺带测试了下线性渐变
+	//主要要区分的点就是
+	//1.animation transform  transition 这三个由于有些人（比如我） 开始的时候可能会出现混淆
+	//animation是动画 动画主要靠keyframes来控制
+	//animation 属性是一个简写属性，用于设置六个动画属性：
+	/*animation-name
+	animation-duration
+	animation-timing-function
+	animation-delay
+	animation-iteration-count
+	animation-direction*/
+	//transform 是 元素变换 主要包括 太多了 http://www.w3school.com.cn/cssref/pr_transform.asp
+	//transition主要是描述一个元素变化的过程
+	//transition: property duration timing-function delay;
+	//transition 属性是一个简写属性，用于设置四个过渡属性：
+	/*transition-property
+		transition-duration
+		transition-timing-function
+		transition-delay*/
+	//还得记录的是渐变的定义
+	//w3cplus上边的干货http://www.w3cplus.com/css3/new-css3-radial-gradient.html
+
+</script>
+</html>
