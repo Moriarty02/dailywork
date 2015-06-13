@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>加载效果为什么一定要用图片呢</title>
+    <style type="text/css">
+    .wrap {
+        width: 150px;
+        height: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -75px;
+        margin-top: -15px;
+        overflow: hidden;
+    }
+    
+    .ball {
+        width: 30px;
+        height: 30px;
+        float: left;
+        background-color: #C1A8E1;
+        margin: 0 1px;
+        border-radius: 50%;
+        -webkit-animation-name: 'way';
+        -webkit-animation-duration: 0.7s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        -webkit-animation-timing-function: linear;
+    }
+    
+    .ball1 {
+        -webkit-animation-delay: 0s;
+    }
+    
+    .ball2 {
+        -webkit-animation-delay: 0.4s;
+    }
+    
+    .ball3 {
+        -webkit-animation-delay: 0.8s;
+    }
+    
+    @-webkit-keyframes way {
+        0% {
+            -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            transform: scale(0);
+        }
+        50% {
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            -o-transform: scale(.5);
+            transform: scale(.5);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="ball ball1"></div>
+        <div class="ball ball2"></div>
+        <div class="ball ball3"></div>
+    </div>
+    <script type="text/javascript">
+    //加载效果一样可用css3实现
+    </script>
+</body>
+
+</html>
