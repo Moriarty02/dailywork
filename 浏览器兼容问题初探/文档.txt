@@ -1,0 +1,10 @@
+CSS兼容技巧：
+1.
+div的垂直居中问题 vertical-align:middle; 将行距增加到和整个DIV一样高 line-height:200px; 然后插入文字，就垂直居中了。缺点是要控制内容不要换行 
+vertical-align拿来控制img和文字的基线是有用，但是内容居中最好还是用
+line-height.
+2.margin加倍的问题     设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。解决方案是在这个div里面加上display:inline;    例如：    <div id=”imfloat”>    相应的css为 
+   #IamFloat{ 
+   float:left; margin:5px; /*IE下理解为10px*/    
+   display:inline;  /*IE下再理解为5px*/} 
+ 

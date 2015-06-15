@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试reduce方法</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /*
+                                                               兼容旧环境（Polyfill）
+                                                            Array.prototype.reduce 被添加到 ECMA-262 标准第 5 版；因此可能在某些实现环境中不被支持。可以将下面的代码插入到脚本开头来允许在那些未能原生支持 reduce 的实现环境中使用它。
+
+                                                            if ('function' !== typeof Array.prototype.reduce) {
+                                                              Array.prototype.reduce = function(callback, opt_initialValue){
+                                                                'use strict';
+                                                                if (null === this || 'undefined' === typeof this) {
+                                                                  // At the moment all modern browsers, that support strict mode, have
+                                                                  // native implementation of Array.prototype.reduce. For instance, IE8
+                                                                  // does not support strict mode, so this check is actually useless.
+                                                                  throw new TypeError(
+                                                                      'Array.prototype.reduce called on null or undefined');
+                                                                }
+                                                                if ('function' !== typeof callback) {
+                                                                  throw new TypeError(callback + ' is not a function');
+                                                                }
+                                                                var index, value,
+                                                                    length = this.length >>> 0,
+                                                                    isValueSet = false;
+                                                                if (1 < arguments.length) {
+                                                                  value = opt_initialValue;
+                                                                  isValueSet = true;
+                                                                }
+                                                                for (index = 0; length > index; ++index) {
+                                                                  if (this.hasOwnProperty(index)) {
+                                                                    if (isValueSet) {
+                                                                      value = callback(value, this[index], index, this);
+                                                                    }
+                                                                    else {
+                                                                      value = this[index];
+                                                                      isValueSet = true;
+                                                                    }
+                                                                  }
+                                                                }
+                                                                if (!isValueSet) {
+                                                                  throw new TypeError('Reduce of empty array with no initial value');
+                                                                }
+                                                                return value;
+                                                              };
+                                                            }
+                                                               
+                                                                */
+    /*
+       描述
+reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。
+
+回调函数第一次执行时，previousValue 和 currentValue 可以是一个值，如果 initialValue 在调用 reduce 时被提供，那么第一个 previousValue 等于 initialValue ，并且currentValue 等于数组中的第一个值；如果initialValue 未被提供，那么previousValue 等于数组中的第一个值，currentValue等于数组中的第二个值。
+        */
+
+    //返回一个数组的累加值
+    //(previousValue, currentValue, index, array)这四个是回调函数默认的四个参数，
+    function Test1() {
+            var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var total = arr.reduce(function(previousValue, currentValue, index, array) {
+                return previousValue + currentValue;
+
+            })
+            return total;
+        }
+        //还可以设置初始值
+    function Test2() {
+            [0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {
+                return previousValue + currentValue;
+            }, 10);
+        }
+        //数组拍平
+        //然而这个并没有什么卵用啊 里面如果还有数组没有法呀 这个还得改
+    function Test3() {
+            var arr = [
+                [1, 2],
+                [3, 4],
+                [5, 6]
+            ];
+            return arr.reduce(function(a, b) {
+                return a.concat(b);
+            })
+        }
+        //最后就是字符串逆序问题，月影大大的分享啦
+    var stringReverse = function(str) {
+        return [str, 'split', 'reverse', 'join'].reduce(function(p, c) {
+            return p[c]('')//p.c('')
+            //执行过程str.split("").reverse("").join("");
+        });
+    }
+    </script>
+</body>
+
+</html>
