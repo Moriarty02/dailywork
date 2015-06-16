@@ -8,3 +8,4 @@ function isString(arg) {
 function typeofArg(arg){
 	return Object.prototype.toString.call(arg).slice(8,-1).toLowerCase();
 }
+//现在不用输入密码了
