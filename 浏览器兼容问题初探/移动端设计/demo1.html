@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>before</title>
+    <style type="text/css">
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        font-family: '微软雅黑';
+    }
+    
+    p {
+        width: 200px;
+        height: 30px;
+        /* line-height: 30px; 有点bug */
+        
+        background-color: #25F0EE;
+    }
+    
+    p:before {
+        /* content:url(http://www.w3cfuns.com/static/image/stamp/006.small.gif); */
+        
+        content: '';
+        width: 20px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: #E7EE11;
+    }
+    
+    .box {
+        width: 100%;
+        height: auto;
+        padding-top: 30px;
+        border-bottom: 2px solid #0CF8DE;
+        position: relative;
+    }
+    /*a标签*/
+    
+    a {
+        display: block;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #F51FE2;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 4px;
+        margin: 0 auto;
+    }
+    
+    .link_1:after {
+        content: "↗";
+    }
+    
+    .link_2:before {
+        content: attr(href);
+    }
+    
+    h2:before {
+        counter-increment: chapter;
+        content: "Chapter " counter(chapter) ". "
+    }
+    /*作清除浮动的方式为*/
+    
+    .clear-fix {
+        *overflow: hidden;
+        *zoom: 1;
+    }
+    
+    .clear-fix:after {
+        display: table;
+        content: "";
+        width: 0;
+        clear: both;
+    }
+    
+    .link_3 {
+    	left: 50%;
+    	margin-left: -20px;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        text-decoration: none;
+        color: #000;
+        font-size: 32px;
+        padding: 5px 10px;
+
+    }
+    
+    .link_3:hover::before,
+    .link_3:hover::after {
+        position: absolute;
+    }
+    
+    .link_3:hover::before {
+        content: "\5B";
+        left: -20px;
+    }
+    
+    .link_3:hover::after {
+        content: "\5D";
+        right: -20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>我是测试</p>
+        <p>我是测试</p>
+        <p>我是测试</p>
+        <p>我是测试</p>
+    </div>
+    <div class="box">
+        <a href="#" class="link_1">测试链接</a>
+    </div>
+    <div class="box">
+        <a href="https://www.baidu.com" class="link_2">测试链接2</a>
+    </div>
+    <div class="box">
+        <h2>技术测试</h2>
+        <h2>技术测试</h2>
+        <h2>技术测试</h2>
+        <h2>技术测试</h2>
+    </div>
+    <div class="box">
+        <a href="#" class="link_3">寂寞的A标签</a>
+    </div>
+</body>
+
+</html>

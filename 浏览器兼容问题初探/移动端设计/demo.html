@@ -1,17 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>移动端网页设计和实现</title>
-</head>
-
-<body>
-    <script type="text/javascript">
-
-
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS3每日一练之选择器-插入文字 | 前端开发网(W3Cfuns.com)!</title>
+        <style type="text/css">
+        *{margin:0; padding:0;}
+        body{margin-bottom:20px; font-size:14px; color:#333; font-family:"Microsoft Yahei";}
+            ul{list-style:none; overflow:hidden;}
+                ul li{height:22px; line-height:22px;}
+                ul li:before{content:url(http://www.w3cfuns.com/static/image/stamp/006.small.gif);
+                	display: inline-block;
+                	height: 590px;
+                	}/*在所有的li之后追加“推荐”图片*/
+                ul li:nth-child(3)~li:before{content:none;}/*选择第三个li，并将其之后的所有的li所追加的内容content属性设置为none后，便实现了只有前三个li有“推荐”图片*/
+        </style>
+    </head>
     
-    </script>
-</body>
-
+    <body>
+        <ul>
+            <li>创新工场招聘web前端工程师</li>
+            <li>（长沙）特米网诚聘：WEB前端开发工程师</li>
+            <li>北京腾讯急招前端开发</li>
+            <li>百度移动平台部web前端研发工程师</li>
+            <li>傲游浏览器诚聘英才</li>
+            <li>巨人网络急聘WEB前端开发工程师</li>
+            <li>搜狗公司招聘网页重构工程师</li>
+            <li>乐唐天地 - Web前端开发工程师</li>
+            <li>淘宝杭州招聘前端开发工程师</li>
+            <li>泰克贝思招聘网站美工</li>
+        </ul>
+    </body>
 </html>
