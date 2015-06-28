@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dataTables</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="dataTables.css">
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="jq.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="dataTables.js"></script>
+    <style type="text/css">
+    body {
+        font-family: '微软雅黑';
+    }
+    
+    .wrap {
+        width: 980px;
+        margin: 0 auto;
+        border: 1px solid #32F5F7;
+        border-radius: 3px;
+        min-height: 300px;
+    }
+    
+    .button {
+        outline: none;
+        font-family: '微软雅黑';
+        width: 200px;
+        height: 38px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <input type="button" class="button" value="测试删除多行数据">
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Sum</th>
+                    <th>All</th>
+                    <th>Index</th>
+                    <th>Date</th>
+                    <th>What</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+    /* $(document).ready(function() {
+                                                                        $('#table_id').DataTable();
+                                                                    });*/
+
+    var data = [
+        [
+            "Tiger Nixon1",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters2",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Tiger Nixon3",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters4",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Tiger Nixon5",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Tiger Nixon6",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters7",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Tiger Nixon8",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters9",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Tiger Nixon10",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters11",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+    ];
+
+   
+    $(document).ready(function() {
+        //填充数据
+        $('#table_id').DataTable({
+            data: data
+        });
+        var table = $('#table_id').DataTable();
+        $('#table_id tbody').on('click', 'tr', function() {
+        	console.log($(this));
+            $(this).toggleClass('selected');
+        });
+ 		//多行删除数据测试
+        $('.button').click(function() {
+        	//ajax操作
+        		
+            table.rows('.selected').remove().draw(false);
+        });
+    });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
