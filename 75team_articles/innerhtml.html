@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>innerhtml和innertext的区别</title>
+</head>
+
+<body>
+    <div id="demo"><span>demo1</span></div>
+    <span id="demo2"><span>span22</span></span>
+</body>
+<script type="text/javascript">
+function clik_callback() {
+    var count = 50;
+    var div = document.getElementById("demo");
+    count--;
+    div.innerHTML = count;
+    alert(count);
+}
+document.onclick=clik_callback;
+</script>
+
+</html>
