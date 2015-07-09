@@ -2,19 +2,24 @@
 <html>
 
 <head>
-   <script type="text/javascript" src='../Angular.js'></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/angular.js/1.4.1/angular.js"></script>
 </head>
 
-<body ng-app="myapp">
-    <div ng-controller="HelloController">
-        <h2>Welcome {{helloTo.title}} to the world of Yiibai!</h2>
-    </div>
+<body ng-app>
+    Your name:
+    <input type="text" ng-model="yourname" placeholder="World">
+    <hr> Hello {{yourname || 'World'}}!
     <script>
-    angular.module("myapp", [])
-        .controller("HelloController", function($scope) {
-            $scope.helloTo = {};
-            $scope.helloTo.title = "AngularJS";
-        });
+    /*    angular.module("myapp", [])
+                .controller("HelloController", function($scope) {
+                    $scope.helloTo = {};
+                    $scope.helloTo.title = "AngularJS";
+                    $scope.helloTo.name=" demo  for text";
+                });*/
+/* angular.module("myapp", []).controller('HelloController', function($scope) {
+        $scope.helloTo = {};
+        $scope.helloTo.name = "zxh";
+    });*/
     </script>
 </body>
 
