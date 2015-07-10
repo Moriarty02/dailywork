@@ -5,4 +5,7 @@ author ：大漠穷秋
 angularjs的核心概念和基本用法
 链接：http://www.ituring.com.cn/article/13472
 
-双向数据绑定:
+双向数据绑定:dom和数据进行绑定
+
+
+

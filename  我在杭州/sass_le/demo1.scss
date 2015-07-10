@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+$demo:red;
+.demo {
+    background: $demo;
+}
+
+$color:#dedede;
+.box {
+    border: {
+        top: 1px solid $color;
+        bottom: 2px dashed $color;
+        radius: 5px;
+    }
+}
+
+.clearfix {
+    &:before, &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+        overflow: hidden;
+    }
+}
+
+@mixin border-radius {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+@mixin border-radius($radius:5px) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+button {
+    @include border-radius(10px);
+}
+
+@mixin center($width:50px, $height:50px) {
+    width: $width;
+    height: $height;
+    margin-top: -($height)/2;
+    margin-left: -($width)/2;
+}
+
+.box2 {
+    @include center;
+}
+
+.demo1 {
+    width: 100px;
+    height: 200px;
+}
+
+.demo2 {
+    background: red;
+    @extend .demo1;
+}
+
+.demo3 {
+    margin-top: 300px;
+    @extend .demo2;
+}
+
+$properties:(margin, padding);
+@mixin setvalue($side, $value) {
+	@each $prop in $properties{
+	#{$prop}-#{$side}:$value;
+
+	}
+
+}
+/*demo*/
+//demo
+.login-box{
+@include setvalue(top,14px);
+
+}
+// 遍历
+/* 糟了 */

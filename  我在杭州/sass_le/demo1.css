@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.demo {
+  background: red; }
+
+.box {
+  border-top: 1px solid #dedede;
+  border-bottom: 2px dashed #dedede;
+  border-radius: 5px; }
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+.clearfix:after {
+  clear: both;
+  overflow: hidden; }
+
+button {
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+.box2 {
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px; }
+
+.demo1, .demo2, .demo3 {
+  width: 100px;
+  height: 200px; }
+
+.demo2, .demo3 {
+  background: red; }
+
+.demo3 {
+  margin-top: 300px; }
+
+/*demo*/
+.login-box {
+  margin-top: 14px;
+  padding-top: 14px; }
+
+/* 糟了 */
+
+/*# sourceMappingURL=demo1.css.map */
