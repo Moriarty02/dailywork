@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var demo = {
+        "code": 200,
+        "result": {
+            "categorys": [{
+                "categoryName": "酒店类",
+                "status": 1,
+                "merchants": [{
+                    "name": "广发银行demo2",
+                    "dataDomains": ["126", "163", "yeah"],
+                    "templateDomains": [],
+                    "templateClients": ["微信"],
+                    "status": 0
+                }, {
+                    "name": "广发银行2",
+                    "dataDomains": ["126", "163", "yeah"],
+                    "templateDomains": ["163", "yeah"],
+                    "templateClients": ["微信", "webmail"],
+                    "status": 1
+                }]
+            }, {
+                "categoryName": "机票类",
+                "status": 0,
+                "merchants": [{
+                    "name": "广发银行demo1",
+                    "dataDomains": ["126", "163", "yeah"],
+                    "templateDomains": ["126", "163", "yeah"],
+                    "templateClients": [],
+                    "status": 0
+                }, {
+                    "name": "广发银行demo1",
+                    "dataDomains": ["126", "163", "yeah"],
+                    "templateDomains": ["126", "yeah"],
+                    "templateClients": [],
+                    "status": 0
+                }]
+            }, {
+                "categoryName": "食品类",
+                "status": 1,
+                "merchants": [{
+                    "name": "深圳开发",
+                    "dataDomains": ["126", "163", "yeah"],
+                    "templateDomains": ["162"],
+                    "templateClients": ["webmail"],
+                    "status": 0
+                }, {
+                    "name": "重庆火锅",
+                    "dataDomains": ["126", "163", "yeah"],
+                    "templateDomains": [],
+                    "templateClients": [],
+                    "status": 1
+                }]
+            }]
+        }
+    };
+    var newdata = {
+        "code": 200,
+        "result": {
+            "name": "深圳开发",
+            "templateDomains": ["sss", "ss22"],
+            "templateClients": ["ss", "ssss222"]
+        }
+    }
+
+    var s = updateData(demo.result, newdata.result);
+
+    function updateData(obj, newobj) {
+        console.log(obj);
+        for (var i in obj) {
+            for (var j in obj[i]) {
+                for (var k in obj[i][j]) {
+                    for (var m in obj[i][j][k]) {
+                        if (obj[i][j][k][m].name == newobj.name) {
+                            obj[i][j][k][m].templateDomains = newobj.templateDomains;
+                            obj[i][j][k][m].templateClients = newobj.templateClients;
+                        }
+                    }
+                }
+            }
+
+        }
+        console.log(obj);
+    }
+
+    //demo.result.categorys[0].merchants[0].status
+    </script>
+</body>
+
+</html>

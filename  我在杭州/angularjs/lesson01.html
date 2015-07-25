@@ -1,0 +1,34 @@
+<html ng-app="phonecatApp">
+
+<head>
+    <script type="text/javascript" src="http://cdn.bootcss.com/angular.js/1.4.1/angular.js"></script>
+</head>
+<script type="text/javascript">
+angular.module('ng-app', []).controller('PhoneListCtrl',
+    function($scope) {
+        $scope.phones = [{
+            "name": "Nexus S",
+            "snippet": "Fast just got faster with Nexus S."
+        }, {
+            "name": "Motorola XOOM™ with Wi-Fi",
+            "snippet": "The Next, Next Generation tablet."
+        }, {
+            "name": "MOTOROLA XOOM™",
+            "snippet": "The Next, Next Generation tablet."
+        }];
+    }
+);
+</script>
+
+<body ng-controller="PhoneListCtrl" >
+    <ul>
+        <li ng-repeat="phone in phones">
+            {{phone.name}}
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>

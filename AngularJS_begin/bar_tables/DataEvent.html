@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格的事件代理</title>
+    <style type="text/css">
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .demoTable {
+        margin: 0 auto;
+        margin-top: 200px;
+        border-collapse: collapse;
+        border: 1px solid #dedede;
+    }
+    
+    .demoTable tr {
+        border: 1px solid #dedede;
+    }
+    
+    td {
+        border-left: 1px solid #dedede;
+        padding: 2px 15px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table class="demoTable">
+            <tr>
+                <td>demo01</td>
+                <td>demo02</td>
+                <td>demo03</td>
+                <td>demo04</td>
+            </tr>
+            <tr>
+                <td>demo11</td>
+                <td>demo12</td>
+                <td>demo13</td>
+                <td>demo14</td>
+            </tr>
+            <tr>
+                <td>demo21</td>
+                <td>demo22</td>
+                <td>demo23</td>
+                <td>demo24</td>
+            </tr>
+            <tr>
+                <td>demo31</td>
+                <td>demo32</td>
+                <td>demo33</td>
+                <td>demo34</td>
+            </tr>
+            <tr>
+                <td>demo41</td>
+                <td>demo42</td>
+                <td>demo43</td>
+                <td>demo44</td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+    init();
+
+    function init() {
+        var table = document.querySelector(".demoTable");
+        table.addEventListener("click", function(e) {
+            var e = e || window.event; //事件的兼容
+            var target = e.srcElement || e.target;
+            alert(target.innerHTML);
+        }, false);
+    }
+    </script>
+</body>
+
+</html>

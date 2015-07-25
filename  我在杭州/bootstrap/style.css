@@ -1,0 +1,20 @@
+html, body {
+  width: 100%;
+  height: 100%; }
+
+.g-topnav {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #418bca; }
+
+.g-mainSection {
+  width: 100%;
+  height: 100%; }
+
+.g-leftNav {
+  margin-left: 15px;
+  height: 100%;
+  background-color: #f0f0f0; }
+
+/*# sourceMappingURL=style.css.map */

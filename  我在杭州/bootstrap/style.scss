@@ -1,0 +1,21 @@
+html,body{
+	width:100%;
+	height:100%;
+}
+$g-topnavwidth: 100%;
+$g-topNavHeight:50px;
+.g-topnav {
+    width: $g-topnavwidth;
+    height: $g-topNavHeight;
+    line-height: $g-topNavHeight;
+    background-color: #418bca;
+}
+.g-mainSection{
+	width:$g-topnavwidth;
+	height:100%;
+}
+.g-leftNav {
+	margin-left:15px;
+    height: 100%;
+    background-color:#f0f0f0;
+}

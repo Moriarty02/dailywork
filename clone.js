@@ -18,11 +18,11 @@ function a(val, fn) {
 }
 
 function test(fn, val) {
-	var stTime = Date.now();
+    var stTime = Date.now();
     fn.call(this, val, function() {
-    	console.log(Date.now() - stTime);
+        console.log(Date.now() - stTime);
     });
 }
 for (var i = 10000 - 1; i >= 0; i--) {
-	var s = i;
+    var s = i;
 }
