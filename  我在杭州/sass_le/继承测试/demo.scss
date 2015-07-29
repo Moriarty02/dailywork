@@ -1,0 +1,12 @@
+.monther {
+    opacity: .7;
+}
+
+.monther .father {
+    border: 1px solid red;
+}
+
+.son {
+    color: red;
+    @extend .monther;
+}

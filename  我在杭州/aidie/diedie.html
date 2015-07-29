@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>运算参数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function sum() {
+        var args = [];
+        var opeation = "";
+        var result = "";
+        var last = false;
+        for (var i = 0; i < arguments.length; i++) {
+            if (Object.prototype.toString.call(arguments[i]) == "[object Number]") {
+                args.push(arguments[i]);
+            } else {
+                opeation = arguments[i];
+            }
+
+        }
+        for (var j = 0; j < args.length; j++) {
+            if (j == args.length - 1) {
+                last = true;
+            }
+            if (!last) {
+                result = result + args[j] + opeation;
+            } else {
+                result = result + args[j]
+            }
+        }
+        result=eval(result);
+        return result;
+        //return eval('+result+')
+
+    }
+
+    var result = sum(1, 2, 3, "+");
+    console.log(result);
+    </script>
+</body>
+
+</html>

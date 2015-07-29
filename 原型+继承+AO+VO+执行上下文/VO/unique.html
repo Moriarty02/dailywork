@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //第一方式空间O(n) 时间复杂度O(n2)
+    //indexOf是es5的 但是在ie没有实现indexOf
+    Array.prototype.unique1 = function() {
+            var n = [];
+            for (var i = 0; i < this.length; i++) {
+                if (n.indexOf(this[i]) == -1) {
+                    n.push(this[i]);
+                }
+            }
+            return n;
+        }
+        // 第二种方式
+        // 对象方法 也可以说是hash
+        // 空间o(1) 时间复杂度o(n)
+    Array.prototype.unique2 = function() {
+        var n = {},
+            r = [];
+        for (var i = 0; i < this.length; i++) {
+            if (!n[this[i]]) {
+                n[this[i]] = true;
+                r.push(this[i]);
+            }
+        }
+        return r;
+    }
+
+    //第三种方式
+    //并没有什么卵用 特么跟第一种一样的
+    Array.prototype.unique3 = function() {
+            var n = [this[0]];
+            for (var i = 0; i < this.length; i++) {
+                if (n.indexOf(this[i]) == -1) {
+                    n.push(this[i]);
+                }
+
+            }
+            return n;
+        }
+        //第四种方式
+        //sort 虽然是底层实现的，但是终归比较慢，而且得到的数组是经过排序的，改变了
+        //数组的，不是很好
+        //测试完了之后发现还是第二种也就是对象方法最合适，虽然牺牲了空间
+    Array.prototype.unique4 = function() {
+        this.sort();
+        var test= [this[0]];
+        for (var i = 1; i < this.length; i++) {
+            if (this[i] != test[test.length - 1]) test.push(this[i]);
+        }
+        return test;
+    }
+    </script>
+</body>
+
+</html>

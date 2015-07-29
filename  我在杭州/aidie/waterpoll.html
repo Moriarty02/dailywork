@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>美女瀑布流</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0
+    }
+    
+    div.section {
+        overflow: hidden
+    }
+    
+    div.aside {
+        width: 225px;
+        float: left;
+        display: inline
+    }
+    
+    div.aside div.content {
+        margin: 5px;
+        background: #666
+    }
+    
+    div.aside div.content img {
+        width: 205px;
+        margin: 5px;
+    }
+    
+    div.aside div.content div.imgcaption {
+        margin: 0 5px;
+        line-height: 20px
+    }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <div class="aside"></div>
+        <div class="aside"></div>
+        <div class="aside"></div>
+        <div class="aside"></div>
+    </div>
+    <button>加载瀑布流布局</button>
+</body>
+<script type="text/javascript" src="http://www.codefans.net/ajaxjs/jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+var json = [{
+    "text": "1",
+    "src": "http://www.codefans.net/jscss/demoimg/1.jpg",
+    "height": "273"
+}, {
+    "text": "2",
+    "src": "http://www.codefans.net/jscss/demoimg/2.jpg",
+    "height": "273"
+}, {
+    "text": "3",
+    "src": "http://www.codefans.net/jscss/demoimg/3.jpg",
+    "height": "306"
+}, {
+    "text": "4",
+    "src": "http://www.codefans.net/jscss/demoimg/4.jpg",
+    "height": "270"
+}, {
+    "text": "5",
+    "src": "http://www.codefans.net/jscss/demoimg/5.jpg",
+    "height": "273"
+}, {
+    "text": "6",
+    "src": "http://www.codefans.net/jscss/demoimg/6.jpg",
+    "height": "307"
+}, {
+    "text": "7",
+    "src": "http://www.codefans.net/jscss/demoimg/7.jpg",
+    "height": "272"
+}, {
+    "text": "8",
+    "src": "http://www.codefans.net/jscss/demoimg/8.jpg",
+    "height": "285"
+}, {
+    "text": "9",
+    "src": "http://www.codefans.net/jscss/demoimg/9.jpg",
+    "height": "303"
+}, {
+    "text": "10",
+    "src": "http://www.codefans.net/jscss/demoimg/10.jpg",
+    "height": "272"
+}, {
+    "text": "11",
+    "src": "http://www.codefans.net/jscss/demoimg/5.jpg",
+    "height": "273"
+}, {
+    "text": "12",
+    "src": "http://www.codefans.net/jscss/demoimg/7.jpg",
+    "height": "273"
+}, {
+    "text": "13",
+    "src": "http://www.codefans.net/jscss/demoimg/3.jpg",
+    "height": "280"
+}]
+
+function getSmallDiv(wrap, oD) {
+    var len = oD.length;
+    var h = Infinity;
+    var getD;
+    for (var i = 0; i < len; i++) {
+        if (oD.eq(i).height() < h) {
+            h = oD.eq(i).height();
+            getD = oD.eq(i);
+        }
+    }
+    return getD;
+}
+$("button").click(function() {
+    for (var i = 0; i < json.length; i++) {
+        var str;
+        str = "<div class=\"content\">";
+        str += "<img src=" + json[i].src + " height=" + json[i].height + " alt=\"\" />";
+        str += "<div class=\"imgcaption\">" + json[i].text + "</div>";
+        str += "</div>";
+        getSmallDiv($(".section"), $(".aside")).append(str);
+    }
+});
+</script>
+
+</html>

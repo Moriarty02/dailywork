@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>实现对象和字符串的互相转换，重点strToObj</title>
+    <style type="text/css">
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    
+    .clearfix {
+        display: inline-block;
+    }
+    /* Hide from IE Mac */
+    
+    .clearfix {
+        display: block;
+    }
+    /* End hide from IE Mac */
+    /* end of clearfix */
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //目前我想到的可以实现字符串转对象的方法
+    //  先造一个有效的字符串
+    var obj = {
+        "name": "张秀华",
+        "sex": "男",
+        "age": "21"
+    };
+    var str = JSON.stringify(obj);
+    console.log(str);
+    //str就是我们拿到的字符串，现在将str转化为对象
+    //1.JSON.parse() 这个方法IE8+,所以要考虑兼容问题
+    var obj1 = JSON.parse(str);
+    console.log(obj1);
+    //2.eval()，这种没有兼容的问题，但是！！不安全，他会执行str代码，如果str1是病毒代码也会执行
+    var obj2 = eval("(" + str + ")");
+    console.log(obj1);
+    console.log(obj2);
+    //3：利用Function的构造函数！！，也就是new Function()的形式
+    // 已测试IE7+可以,木有Ie6
+    var obj3 = new Function("return " + str)();
+    console.log(obj3);
+    //类似于JSONP 的实现方式
+    var script = document.createElement("script");
+    var body = document.getElementsByTagName("body")[0];
+    script.innerHTML = "var obj4=" + str;
+    body.appendChild(script);
+    console.log(obj4);
+    </script>
+</body>
+
+</html>

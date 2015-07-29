@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>table布局初探</title>
+    <style type="text/css">
+	*{
+		margin：0;
+		padding: 0;
+		box-sizing:border-box;
+		font-family: '微软雅黑'
+	}
+	html,body{
+		width: 100%;
+		height: 100%;
+	}
+	.wrap{
+
+		height: 500px;
+		margin: 0 auto;
+		border:2px solid #dedede;
+		width: 100%;
+		max-width: 1000px;
+		
+	}
+	.table{
+		display: table;
+		border: 1px solid red;
+		width: 100%;
+		max-width: 1000px;
+	}
+	.title{
+		height: 100px;
+		background-color: red;
+		width: 100%;
+		max-width: 1000px;
+		text-align: center;
+		
+	}
+	.cell{
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		border:1px solid red;
+		
+
+	}
+	.cell1{
+		width: 100px;
+	}
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="title">我是title</div>
+        <div class="table">
+            <div class="cell cell1">左边导航</div>
+            <div class="cell cell2">具体内容</div>
+        </div>
+    </div>
+</body>
+
+</html>

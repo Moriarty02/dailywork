@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试图片移动的时候</title>
+    <style type="text/css">
+@keyframes move {
+        from {
+          transform:translateX(0px)
+        }
+        to {
+            transform:translateX(500px)
+        }
+    }
+    
+    @-moz-keyframes move
+    /* Firefox */
+    
+    {
+        from {
+          transform:translateX(0px)
+        }
+        to {
+            transform:translateX(500px)
+        }
+    }
+    
+    @-webkit-keyframes move
+    /* Safari and Chrome */
+    
+    {
+        from {
+          transform:translateX(0px)
+        }
+        to {
+            transform:translateX(500px)
+        }
+    }
+    
+    @-o-keyframes move
+    /* Opera */
+    
+    {
+        from {
+          transform:translateX(0px)
+        }
+        to {
+            transform:translateX(500px)
+        }
+    }
+    
+    .imgcon {
+        width: 237px;
+        height: 397px;
+        background: url(http://a2.mzstatic.com/us/r30/Purple7/v4/f7/67/db/f767db64-16a8-b01f-0982-d957c36d8710/screen322x572.jpeg) no-repeat;
+        background-size: 237px 397px;
+       
+    }
+    .imgcon:hover{
+    	 animation: move 5s forwards;
+        -moz-animation: move 5s forwards;
+        /* Firefox */
+        -webkit-animation: move 5s forwards;
+        /* Safari and Chrome */
+        -o-animation: move 5s forwards;
+        /* Opera */
+    }
+
+    img:hover{
+    	 animation: move 5s forwards;
+        -moz-animation: move 5s forwards;
+        /* Firefox */
+        -webkit-animation: move 5s forwards;
+        /* Safari and Chrome */
+        -o-animation: move 5s forwards;
+        /* Opera */
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="imgcon"></div>
+    </div>
+    <div class="box2">
+        <img src="http://a2.mzstatic.com/us/r30/Purple7/v4/f7/67/db/f767db64-16a8-b01f-0982-d957c36d8710/screen322x572.jpeg" height="397" width="237">
+    </div>
+</body>
+
+</html>

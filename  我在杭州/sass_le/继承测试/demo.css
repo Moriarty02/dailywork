@@ -1,0 +1,10 @@
+.monther, .son {
+  opacity: .7; }
+
+.monther .father, .son .father {
+  border: 1px solid red; }
+
+.son {
+  color: red; }
+
+/*# sourceMappingURL=demo.css.map */
