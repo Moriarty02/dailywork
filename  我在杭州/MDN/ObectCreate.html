@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Object.create()</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /*	概述
+	Object.create() 方法创建一个拥有指定原型和若干个指定属性的对象。
+	语法
+	Object.create(proto, [ propertiesObject ])
+	参数
+	proto
+	一个对象，作为新创建对象的原型。
+	propertiesObject
+	一个对象值，可以包含若干个属性，属性名为新建对象的属性名，属性值为那个属性的属性描述符对象.
+	抛出异常
+	如果 proto 参数不是 null 或一个对象值，则抛出一个 TypeError 异常。*/
+
+    //大概总结：Object.create()这个是ES5提供的一个方法，兼容的话IE9+;
+    //能干什么:
+    //1.实现一个类的继承，如基础测试，做继承的时候只需要拿到父类的构造函数，然后在把父类原型作为第一个参数参入
+    //作为子类的原型就可以了
+    //2.可以实现多继承，但是具体的方法要自己实现，类似于$.extend吧
+    //3.再就是类级别的了，后面的参数作为，对象创建时就有的属性，{name:'alpha'}这样子;
+    //而且作为类级别的东西，每个属性都是可以配置value 	writable enumerable configurable get set
+    //完嗒
+    //基础测试
+    function shape(x, y) {
+        this.x = x;
+        this.y = y;
+        console.log(this.x + " " + this.y)
+    }
+
+    shape.prototype.move = function(x, y) {
+            this.x += x;
+            this.y += y;
+            console.log("moved   " + this.x + " " + this.y);
+        }
+        //继承至shape
+    function rectangle(x, y) {
+        shape.call(this, x, y); //拿到父类的构造函数
+    }
+    rectangle.prototype = Object.create(shape.prototype);
+
+    var rect = new rectangle(12, 12);
+    console.log(rect instanceof rectangle);
+    console.log(rect instanceof shape);
+    rect.move(1, 2);
+    //第二个例子
+    //注意mixin，自己继承至一个父类，然后通过mixin实现多个父类的继承，实际上也就是把多个prototype镶嵌上去而已
+    //
+    //mixin函数会把超类原型上的函数拷贝到子类原型上，这里mixin函数没有给出,需要由你实现。一个和 mixin ///
+    //很像的函数是  jQuery.extend。
+    //
+    function SuperClass() {
+
+    }
+
+    function OtherSuperClass() {
+
+    }
+
+    function MyClass() {
+        SuperClass.call(this);
+        OtherSuperClass.call(this);
+    }
+
+    MyClass.prototype = Object.create(SuperClass.prototype); //inherit
+    mixin(MyClass.prototype, OtherSuperClass.prototype); //mixin
+
+    MyClass.prototype.myMethod = function() {
+        // do a thing
+    };
+    // 第三个例子
+    // 
+    var o;
+    // 创建一个原型为null的空对象
+    o = Object.create(null);
+    o = {};
+    // 以字面量方式创建的空对象就相当于:
+    o = Object.create(Object.prototype);
+    o = Object.create(Object.prototype, {
+        // foo会成为所创建对象的数据属性
+        foo: {
+            writable: true,
+            configurable: true,
+            value: "hello"
+        },
+        // bar会成为所创建对象的访问器属性
+        bar: {
+            configurable: false,
+            get: function() {
+                return 10
+            },
+            set: function(value) {
+                console.log("Setting `o.bar` to", value)
+            }
+        }
+    })
+
+    function Constructor() {}
+    o = new Constructor();
+    // 上面的一句就相当于:
+    o = Object.create(Constructor.prototype);
+    // 当然,如果在Constructor函数中有一些初始化代码,Object.create不能执行那些代码
+    // 创建一个以另一个空对象为原型,且拥有一个属性p的对象
+    o = Object.create({}, {
+            p: {
+                value: 42
+            }
+        })
+        // 省略了的属性特性默认为false,所以属性p是不可写,不可枚举,不可配置的:
+    o.p = 24
+    o.p
+        //42
+    o.q = 12
+    for (var prop in o) {
+        console.log(prop)
+    }
+    //"q"
+    delete o.p
+        //false
+        //创建一个可写的,可枚举的,可配置的属性p
+    o2 = Object.create({}, {
+        p: {
+            value: 42,
+            writable: true,
+            enumerable: true,
+            configurable: true
+        }
+    });
+    </script>
+</body>
+
+</html>

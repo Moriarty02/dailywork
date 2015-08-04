@@ -27,6 +27,7 @@
 </head>
 
 <body>
+
     <script type="text/javascript">
     //目前我想到的可以实现字符串转对象的方法
     //  先造一个有效的字符串
@@ -55,7 +56,55 @@
     script.innerHTML = "var obj4=" + str;
     body.appendChild(script);
     console.log(obj4);
+    //可以考虑一个正则的问题
+    var demo = "[1,2,3,4,5,6,7]";
+    //把上面的字符串用正则替换为数组，可以用到split
+    demo.replace(/(^\[*)|(\]*$)/g, "");
     </script>
 </body>
+<script type="text/javascript">
+/*function () {
+    this.parent = 1;
+}*/
+var obj = Class({
+    prop: Class({
+        prop: parent
+    }),
+    constructor: function() {
+        this.obj = '这是对象1';
+    }
+})
+
+var obj1 = new Class({
+    prop: new Class({
+        prop: parent
+    }),
+    constructor: function() {
+        this.obj = '这是对象2';
+        //  this.method = Class({...});
+    }
+});
+
+function Class(value) {
+
+    if (this instanceof Class) {
+        this.prototype = value.prop;
+        this.constructor = value.constructor;
+        value.constructor.call(this);
+
+    } else {
+
+        var obj = {};
+
+        for (var i in value) {
+            obj[i] = value[i];
+        }
+        obj.constructor = Class;
+        value.constructor.call(obj);
+        return obj;
+    }
+
+}
+</script>
 
 </html>

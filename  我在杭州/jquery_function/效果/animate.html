@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hide</title>
+    <style type="text/css">
+    #clickme {
+        width: 100px;
+        cursor: pointer;
+        border: 1px solid #dedede;
+    }
+    </style>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <div id="clickme">
+        Click here
+    </div>
+    <img id="book" src="http://icon.nipic.com/BannerPic/20150727/indexphoto/20150727164241.jpg" alt="" width="100" height="123" />
+    <script type="text/javascript">
+    $('#clickme').click(function() {
+        $('#book').animate({
+            width: ['toggle', 'swing'],
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 5000, 'linear', function() {
+            $(this).after('<div>Animation complete.</div>');
+        });
+    });
+    </script>
+</body>
+
+</html>

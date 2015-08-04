@@ -20,7 +20,7 @@ function findSecondMax(arr) {
     }
     return secondMax;
 }
-
+findSecondMax2(arr);
 
 //第二种方式
 function findSecondMax2(arr) {
