@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>找出元素 item 在给定数组 arr 中的位置</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function indexOf(arr, item) {
+        if (Array.prototype.indexOf) {
+            return arr.indexOf(item);
+        } else {
+            for (var i = 0, length = arr.length; i < length; i++) {
+                if (a[i] === item)
+                    return i;
+            }
+            return -1;
+
+        }
+
+    }
+    </script>
+</body>
+
+</html>

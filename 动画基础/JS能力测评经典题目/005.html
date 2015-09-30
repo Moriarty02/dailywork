@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>找出数组 arr 中重复出现过的元素</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function duplicates(arr) {
+        var result = [],
+            temp = {};
+        for (var i = 0, length = arr.length; i < length; i++) {
+            if (temp[arr[i]] != true) {
+                temp[arr[i]] = true;
+            } else {
+                if (result.indexOf(arr[i]) == -1) {
+                    result.push(arr[i]);
+                }
+            }
+
+        }
+        return result;
+    }
+    //别人的想法
+    function duplicates(arr) {
+        var newarr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr.indexOf(arr[i]) != i) {
+                if (newarr.indexOf(arr[i]) == -1)
+                    newarr.push(arr[i]);
+            }
+        }
+
+        return newarr;
+    }
+
+    var a = [1, 2, 4, 4, 4, 4, 4, 3, 3, 1, 5, 3];
+    console.log(duplicates(a))
+    </script>
+</body>
+
+</html>

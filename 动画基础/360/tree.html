@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>二叉树构建</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function Node(element, left, right) {
+        this.element = element;
+        this.right = right;
+        this.left = left;
+        this.level = 0;
+    }
+
+    function BST() {
+        this.root = null;
+    }
+
+    BST.prototype = {
+    	//插入方法
+    	insert:function(element){
+    		var n=new Node(element,null,null);
+    		if(this.root==null){
+    			this.root=n;
+    		}else{
+    			var current=this.root;
+
+    		}
+
+    	}
+    }
+    </script>
+</body>
+
+</html>

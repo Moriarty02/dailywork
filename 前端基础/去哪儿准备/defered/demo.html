@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>deferrd对象测试</title>
+    <script type="text/javascript" src="../jquery-1.11.2.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var wait = function() {
+        var dtd = $.Deferred();
+        var task = function() {
+            //alert("延迟。。。");
+            console.log("延迟执行");
+            dtd.reject();
+        };
+        setTimeout(task, 2000);
+        return dtd;
+    }
+    $.when(wait()).done(function() {
+        //alert("success")
+        console.log("success");
+    }).fail(function() {
+        //alert("failed");
+        console.log("failed");
+            //
+    })
+    </script>
+</body>
+
+</html>

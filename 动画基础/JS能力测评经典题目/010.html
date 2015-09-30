@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>返回函数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function functionFunction(str) {
+        var inner = function(ins) {
+            return str + ", " + ins;
+        };
+        return inner;
+    }
+    //使用闭包
+    function makeClosures(arr, fn) {
+        var result = [];
+        for (var i = 0, length = arr.length; i < length; i++) {
+            (function(i) {
+                result[i] = function() {
+                    return fn.call(null, arr[i])
+                };
+            })(i)
+
+        }
+        return result;
+    }
+
+    //二次封装函数
+    /*
+     已知函数 fn 执行需要 3 个参数。请实现函数 partial，调用之后满足如下条件：
+	1、返回一个函数 result，该函数接受一个参数
+	2、执行 result(str3) ，返回的结果与 fn(str1, str2, str3) 一致
+      */
+    function partial(fn, str1, str2) {
+        var result = function(val) {
+            return fn.call(null, str1, str2, val);
+        };
+
+        return result;
+    }
+    //arguments加起来
+    function useArguments() {
+        if (Array.prototype.reduce) {
+            return Array.prototype.reduce.call(arguments, function(prev, cur) {
+                return prev + cur;
+            })
+
+        } else {
+            var sum = 0;
+            for (var i = 0, length = arguments.length; i < length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+    }
+    /*实现函数 callIt，调用之后满足如下条件
+	1、返回的结果为调用 fn 之后的结果
+	2、fn 的调用参数为 callIt 的第一个参数之后的全部参数*/
+    function callIt(fn) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        return fn.apply(this, args);
+    }
+
+    /*
+    实现函数 partialUsingArguments，调用之后满足如下条件：
+	1、返回一个函数 result
+	2、调用 result 之后，返回的结果与调用函数 fn 的结果一致
+	3、fn 的调用参数为 partialUsingArguments 的第一个参数之后的全部参数以及 result 的调用参数 
+     */
+    function partialUsingArguments(fn) {
+        var outerArgs = Array.prototype.slice.call(arguments, 1);
+
+        var result = function() {
+            var innerArgs = Array.prototype.slice.call(arguments);
+            return fn.apply(null, innerArgs.concat(outerArgs));
+        };
+        return result;
+
+    }
+    //柯力化
+    //
+    function curryIt(fn) {
+        var arr = [],
+            len = fn.length;
+        return function(x) {
+            arr.push(x);
+            return arr.length < len ? arguments.callee : fn.apply(null, arr);
+        }
+    }
+    //模块
+    /*
+    	完成函数 createModule，调用之后满足如下要求：
+	1、返回一个对象
+	2、对象的 greeting 属性值等于 str1， name 属性值等于 str2
+	3、对象存在一个 sayIt 方法，该方法返回的字符串为 greeting属性值 + ', ' + name属性值
+     */
+    function createModule(str1, str2) {
+        return {
+            greeting: str1,
+            name: str2,
+            sayIt: function() {
+                return this.greeting + ", " + this.name
+            }
+
+        }
+    }
+
+
+    //二进制查找：
+    function valueAtBit(num, bit) {
+        var a = num.toString(2);
+        return a.charAt(bit - 1)
+    }
+
+    //二进制转换
+    function convertToBinary(num) {
+        var tmp = num.toString(2);
+        while (tmp.length < 8) {
+            tmp = "0" + tmp;
+        }
+        return tmp;
+    }
+
+    function multiply(a, b) {
+
+    }
+    //乘法精度问题
+    function multiply(a, b) {
+        var len1 = a.toString().substring(b.toString().indexOf(".") + 1).length;
+        var len = b.toString().substring(b.toString().indexOf(".") + 1).length;
+        return parseFloat(a * b).toFixed(len + len1);
+    }
+
+    //给定一个构造函数 constructor，请完成 alterObjects 方法，将 constructor 的所有实例的 greeting 属性指向给定的 greeting 变量。
+    function alterObjects(constructor, greeting) {
+        constructor.prototype.greeting = greeting;
+    }
+    //找出对象 obj 不在原型链上的属性(注意这题测试例子的冒号后面也有一个空格~)
+    /*1、返回数组，格式为 key: value ;
+    2、结果数组不要求顺序
+     */
+    function iterate(obj) {
+    	var result=[];
+    	var iteminfo=null;
+    	for(var item in obj){
+    		if(obj.hasOwnProperty(item)){
+    			iteminfo="item: "+obj[item];
+    			result.push(iteminfo);
+    		}
+
+    	}
+    	return result;
+    }
+    </script>
+</body>
+
+</html>

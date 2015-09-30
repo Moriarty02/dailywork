@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bind方法</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /*function f() {
+                                    alert(this.a);
+
+                                }
+                                var obj={
+                                	name:"sss",
+                                	a:"zhaoyundie"
+
+                                }
+                                var g=f.bind(obj)
+                                g();*/
+    /*
+        for (var i = 0; i < 10; i++) {
+
+            (function(i) {
+            	var tmp=i;
+                setTimeout(function() {
+                    console.log(tmp);
+                }, 1000)
+
+            }(i))
+
+        }*/
+    /*    for (var i = 0; i < 10; i++) {
+            setTimeout(function(num) {
+                return function() {
+                    console.log(num);
+                }
+
+            }(i), 1000)
+
+        }
+    */
+    for (var i = 0; i < 10; i++) {
+        setTimeout(function(num) {
+            return function() {
+                console.log(num);
+            }
+
+        }(i), 1000*i)
+
+    }
+    </script>
+</body>
+
+</html>

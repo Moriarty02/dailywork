@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试webworkers</title>
+</head>
+
+<body>
+    <input type="button" value="给老子点" onclick=run()>
+    <script type="text/javascript" src="web.js"></script>
+    <script type="text/javascript">
+    var worker = new Worker("./web.js");
+    worker.postMessage();
+    worker.onmessage = function(e) {
+
+        alert(e.data);
+    }
+    </script>
+    <script type="text/javascript">
+    var saylove = function() {
+        console.log(" I love zhaoyundie");
+        Math.max();
+    }
+    </script>
+</body>
+
+</html>

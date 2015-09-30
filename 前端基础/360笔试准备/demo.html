@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>360笔试测试</title>
+    <style type="text/css">
+	    @-webkit-keyframes move{
+	    	from:transformX(0);
+	    	to:transformX(50%);
+	    }
+	.g-wrap{
+		width: 154px;
+		height: 72px;
+		
+	}
+	.g-box{
+		width: 100%;
+		height: 100%;
+		background: #dedede;
+		border-radius: 39px;
+		position: relative;
+	}
+	.ball{
+		width: 50%;
+		height: 100%;
+		border-radius: 50%;
+		background: green;
+		position: absolute;
+	}
+	.active{
+		-webkit-animation: move 1s;
+		-o-animation: move 1s;
+		animation: move 1s;
+	}
+    </style>
+</head>
+
+<body>
+    <div class="g-wrap">
+        <div class="g-box">
+            <div class="ball active"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function testSymbols(str) {
+        var sarr = str.split("");
+        var testStr = /^[a-zA-Z]+$/;
+        var flag = 0;
+        for (var i = 0, length = sarr.length; i < length; i++) {
+            if (testStr.test(sarr[i])) {
+                if (sarr[i - 1].charCodeAt("0") == 43 && sarr[i + 1].charCodeAt("0") == 43) {
+                    flag = i;
+                }
+            }
+
+        }
+        if (flag == sarr.length - 2) {
+            return true;
+        }
+        return false;
+    }
+    testSymbols("+a+b+c+d+")
+    </script>
+</body>
+
+</html>

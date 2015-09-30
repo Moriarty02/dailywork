@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>盒子的一些JavaScript方法</title>
+    <style type="text/css">
+    .box {
+        width: 100px;
+        height: 100px;
+        border: 10px solid red;
+        margin: 10px;
+        padding: 10px;
+        background: tomato;
+        position: absolute;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">BOX</div>
+    <script type="text/javascript">
+    /*    (function() {
+                                        var $ = function(name) {
+                                            return document.querySelector(name);
+                                        };
+                                        var test=function(name){
+                                            var box=$(name);
+                                            console.log(box.getBoundingClientRect().width)
+
+                                        }
+                                       test(".box")
+
+                                    })()
+                                */
+    </script>
+    <script type="text/javascript">
+    /*var dom = document.querySelector(".box");
+                                var move=function(){
+                                    startTime = Date.now();
+                                    p = 0;
+                                    dur = 2000;
+                                    requestAnimationFrame(function fn(){
+                                        if( p >= 1){
+                                            dom.style.left = 350 + 'px';
+
+                                            return;
+                                        }else{
+                                            p = (Date.now() - startTime)/dur;
+                                            dom.style.left = 50 + p * 300 + 'px';
+                                            requestAnimationFrame(fn);
+                                        }
+                                    });
+                                }
+
+                                move();*/
+    /*var dom = document.querySelector(".box");
+    var move = function() {
+        var p = 0;
+        var startTime = Date.now();
+        var during = 2000;
+        requestAnimationFrame(function fn() {
+            if (p >= 1) {
+                dom.style.left = 400 + "px";
+            } else {
+                p = (Date.now() - startTime) / during;
+                dom.style.left = 50 + p * 300 + "px";
+                requestAnimationFrame(fn);
+            }
+
+        });
+    }
+    move();
+*/
+    /*  var dom = document.querySelector(".box");
+
+      var move = function() {
+          var p = 0;
+          var startTime = Date.now();
+          var during = 2000;
+          requestAnimationFrame(function fn() {
+              if (p >= 1) {
+                  dom.style.left = 510 + "px";
+              } else {
+                  p = (Date.now() - startTime) / during;
+                  dom.style.left = 10 + p * 500 + "px";
+                  requestAnimationFrame(fn)
+              }
+
+          });
+
+
+      }
+      move();
+    */
+    var dom = document.querySelector(".box");
+    var move = function() {
+        var p = 0;
+        var startTime = Date.now();
+        var during = 1000;
+        requestAnimationFrame(function fn() {
+            if (p >= 1) {
+                dom.style.left = 510 + "px"
+            } else {
+                p = (Date.now() - startTime) / during;
+                dom.style.left = 10 + p * 500 + "px";
+                requestAnimationFrame(fn);
+            }
+
+        })
+
+    }
+    move()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>移除数组 arr 中的所有值与 item 相等的元素，请直接在给定的 arr 数组上进行操作</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function removeWithoutCopy(arr, item) {
+        if (false) {
+            arr= arr.filter(function(cur) {
+                return cur != item;
+            });
+        } else {
+        	for(var i =0,length=arr.length;i<length;i++){
+        		if(arr[i]===item){
+        			arr.splice(i,1);
+        			i=i-1;
+        		}
+        	}
+        	
+        }
+        return arr;
+
+    }
+    var a = [2, 2, 2, 2, 2, 56, 5, 5];
+  // removeWithoutCopy(a, 2)
+  // 
+  // 
+  	var selectSort=function(arr){
+  		var min,length=arr.length;
+  		for(var i=0 ;i<length;i++){
+  			min=i;
+  			for(var j=i+1;j<=length;j++){
+  				if(a[min]>a[j])
+  					min=j;
+  			}
+  			if(min!=i){
+  				a[i]=^a[min];
+  				a[min]=^a[i];
+  				a[i]=^a[min];
+
+  			}
+  		}
+
+  	}
+    </script>
+</body>
+
+</html>
